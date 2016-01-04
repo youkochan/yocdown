@@ -1,0 +1,155 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
+{
+	"name": "YocDown",
+    "scopeName": "text.yocdown",
+    "fileTypes": ["md", "markdown", "yoc"],
+    "patterns": [
+        {
+            "comment": "for inline raw",
+            "match": "`[^`]+`",
+            "name": "text.html.markdown markup.raw.inline"
+        },
+        {
+            "comment": "for markdown picture and url (complex)",
+            "match": "!?\\[(!?\\[[^\\]]*\\]\\([^\\)]*\\))\\]\\(([^\\) ]*)\\)",
+            "captures": {
+                "0": { "name": "markup.raw.block" },
+                "1": { "name": "string.other.link.title.markdown" },
+                "2": { "name": "markup.underline" }
+            }
+        },
+        {
+            "comment": "for markdown picture and url (simple)",
+            "match": "!?\\[([^\\]]*)\\]\\(([^\\) ]*)\\)",
+            "captures": {
+                "0": { "name": "markup.raw.block" },
+                "1": { "name": "string.other.link.title.markdown" },
+                "2": { "name": "markup.underline" }
+            }
+        },
+        {
+            "comment": "for markdown unordered list",
+            "begin": "^\\* ",
+            "end": "^$",
+            "match": "^\\* ",
+            "name": "constant.numeric"
+        },
+        {
+            "comment": "for markdown unordered list",
+            "begin": "^- ",
+            "end": "^$",
+            "match": "^- ",
+            "name": "constant.numeric"
+        },
+        {
+            "comment": "for markdown ordered list",
+            "begin": "^[0-9]\\.+ ",
+            "end": "^$",
+            "match": "^[0-9]\\.+ ",
+            "name": "constant.numeric"
+        },
+        {
+            "comment": "for markdown separator",
+            "match": "^([=-])\\1{3,}$",
+            "name": "meta.separator"
+        },
+        {
+            "comment": "for markdown heading",
+            "match": "^[#]+\\s.+",
+            "name": "markdown.heading, markup.heading | markup.heading entity.name, markup.heading.markdown punctuation.definition.heading.markdown"
+        },
+        {
+            "comment": "for jekyll highlight",
+            "begin": "^{%\\s*highlight\\s*([^%]*)%}\\n",
+            "end": "^{%\\s*endhighlight\\s*%}$",
+            "name": "markup.heading",
+            "contentName": "punctuation.definition.fenced.markdown"
+        },
+        {
+            "comment": "for markdown fence",
+            "begin": "^```[^\\s]+\\n",
+            "end": "^```$",
+            "name": "markup.heading",
+            "contentName": "punctuation.definition.fenced.markdown"
+        }
+        /*,
+        {
+            "include": "text.html.markdown"
+        }
+        */
+    ],
+    "repository": {
+        "codeblock": {
+            "comment": "used in codeblocks",
+            "patterns": [
+                {
+                    "name": "comment.block.markdown.jekyll",
+                    "match": ".*"
+                }
+            ]
+        },
+        "link-footnote": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.constant.begin.markdown.jekyll"
+                        },
+                        "2": {
+                            "name": "constant.other.reference.link.markdown.jekyll"
+                        },
+                        "3": {
+                            "name": "punctuation.definition.constant.end.markdown.jekyll"
+                        }
+                    },
+                    "match": ".?(\\[)([^\\]]*)(\\])",
+                    "name": "constant.other.reference.link.markdown.jekyll"
+                }
+            ]
+        },
+        "front-matter": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.entry.yaml.jekyll"
+                        },
+                        "10": {
+                            "name": "punctuation.definition.string.end.yaml.jekyll"
+                        },
+                        "11": {
+                            "name": "string.unquoted.yaml.jekyll"
+                        },
+                        "2": {
+                            "name": "entity.name.tag.yaml.jekyll"
+                        },
+                        "3": {
+                            "name": "punctuation.separator.key-value.yaml.jekyll"
+                        },
+                        "4": {
+                            "name": "punctuation.definition.entry.yaml.jekyll"
+                        },
+                        "5": {
+                            "name": "string.quoted.double.yaml.jekyll"
+                        },
+                        "6": {
+                            "name": "punctuation.definition.string.begin.yaml.jekyll"
+                        },
+                        "7": {
+                            "name": "punctuation.definition.string.end.yaml.jekyll"
+                        },
+                        "8": {
+                            "name": "string.quoted.single.yaml.jekyll"
+                        },
+                        "9": {
+                            "name": "punctuation.definition.string.begin.yaml.jekyll"
+                        }
+                    },
+                    "match": "(?:(?:(-\\s*)?(\\w+\\s*(:)))|(-))\\s*(?:((\")[^\"]*(\"))|((')[^']*('))|([^,{}&#\\[\\]]+))\\s*",
+                    "name": "string.unquoted.yaml.jekyll"
+                }
+            ]
+        }
+    },
+    "uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418"
+}

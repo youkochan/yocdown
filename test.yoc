@@ -1,0 +1,54 @@
+---
+test: 123
+---
+
+`test` a `sssss`
+
+<div></div>
+
+<figure>
+	<a href="/images/blog/linux-note-6-1.png">
+		<img src="/images/blog/linux-note-6-1.png" alt="">
+	</a>
+</figure>
+
+![sssss](http://sssssssssssssssssssssssssssssssss)
+
+[sssss](http://sssssssssssssssssssssssssssssssss)
+
+[![Stories in Ready](https://badge.waffle.io/23maverick23/sublime-jekyll.svg?label=ready&title=Ready)](http://waffle.io/23maverick23/sublime-jekyll)
+
+For per-project settings, make sure you add your Jekyll settings correctly (read [Issue #16](https://github.com/23maverick23/sublime-jekyll/issues/16) if you have questions on formatting).
+
+$12345
+
+{% highlight cpp %}
+sssssssssssssssssssa
+
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+{% endhighlight %}
+
+12345
+
+```js
+sssaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaa
+aaaa
+```
+
+just a test
+
+* aaaa
+* aaaa
+* sssss
+
+- aaaa
+- aaaa
+- aaaa
+
+
+# test
+
+## test
+
+### test1111111111111111
