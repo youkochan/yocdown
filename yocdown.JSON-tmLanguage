@@ -1,7 +1,9 @@
 // [PackageDev] target_format: plist, ext: tmLanguage
 {
+    "foldingStartMarker": "(?x)\n(<(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|form|dl)\\b.*?>\n|<!--(?!.*-->)\n|\\{\\s*($|\\?>\\s*$|//|/\\*(.*\\*/\\s*$|(?!.*?\\*/)))\n)", 
+    "scopeName": "text.html.markdown", 
+    "foldingStopMarker": "(?x)\n(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|form|dl)>\n|^\\s*-->\n|(^|\\s)\\}\n)", 
 	"name": "YocDown",
-    "scopeName": "text.yocdown",
     "fileTypes": ["md", "markdown", "yoc"],
     "patterns": [
         {
@@ -59,48 +61,185 @@
             "name": "markdown.heading, markup.heading | markup.heading entity.name, markup.heading.markdown punctuation.definition.heading.markdown"
         },
         {
-            "comment": "for jekyll highlight",
-            "begin": "^{%\\s*highlight\\s*([^%]*)%}\\n",
-            "end": "^{%\\s*endhighlight\\s*%}$",
-            "name": "markup.heading",
-            "contentName": "punctuation.definition.fenced.markdown"
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(cpp)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "source.c++" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
         },
         {
-            "comment": "for markdown fence",
-            "begin": "^```[^\\s]+\\n",
-            "end": "^```$",
-            "name": "markup.heading",
-            "contentName": "punctuation.definition.fenced.markdown"
-        }
-        /*,
-        {
-            "include": "text.html.markdown"
-        }
-        */
-    ],
-    "repository": {
-        "codeblock": {
-            "comment": "used in codeblocks",
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(c)\\s*((?:linenos\\s*)?%})?$", 
             "patterns": [
-                {
-                    "name": "comment.block.markdown.jekyll",
-                    "match": ".*"
-                }
+                { "include": "source.c" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(json)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "source.json" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(css)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [ 
+                { "include": "source.css" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(hbs|handlebars|html|html5)\\s*((?:linenos\\s*)?%})?$",
+            "patterns": [ 
+                { "include": "text.html.basic" },
+                { "include": "text.html.handlebars" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(javascript|js)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "source.js" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(java)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "source.java" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" }, 
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(md|markdown)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "text.html.markdown" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" },
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "end": "(```|~~~|{%\\s*endhighlight\\s*%})\\n", 
+            "begin": "(```|~~~|{%\\s*highlight)\\s*(python)\\s*((?:linenos\\s*)?%})?$", 
+            "patterns": [
+                { "include": "source.python" }
+            ], 
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }, 
+                "2": { "name": "variable.language.fenced.markdown" },
+                "3": { "name": "punctuation.definition.fenced.markdown" }
+            }
+        },
+        {
+            // \G([ ]{4}|\t).*$\n?
+            "comment": "for markdown fence, using Tab or Space",
+            "match": "\\G(([ ]{4}|\\t).*$\\n?)",
+            "captures": {
+                "1": { "name": "punctuation.definition.fenced.markdown" }
+            } 
+        },
+        {
+            "comment": "for jekyll yaml front",
+            "begin": "^---$",
+            "end": "^---$",
+            // "name": "markup.heading",
+            "patterns": [
+                { "include": "#front-matter" }
             ]
         },
+        // for GFM italics
+        {
+            "comment": "for GFM: italic",
+            "match": "([^a-zA-Z0-9-\\.]|\\s)(_[^\\s_]+_)([^a-zA-Z0-9-\\.]|\\s)",
+            "captures": {
+                "2": { "name": "markup.italic" }
+            }
+        },
+        {
+            "comment": "for GFM: bold",
+            "match": "(\\*\\*[^\\s\\*]+\\*\\*)",
+            "captures": {
+                "1": { "name": "markup.bold" }
+            }
+        },
+        {
+            "comment": "for GFM: italic",
+            "match": "([^a-zA-Z0-9-\\.]|\\s)(\\*[^\\s\\*]+\\*)([^a-zA-Z0-9-\\.]|\\s)",
+            "captures": {
+                "2": { "name": "markup.italic" }
+            }
+        },
+        {
+            "comment": "for GFM: bold",
+            "match": "([^a-zA-Z0-9-\\.]|\\s)(__[^\\s\\*]+__)([^a-zA-Z0-9-\\.]|\\s)",
+            "captures": {
+                "2": { "name": "markup.bold" }
+            }
+        },
+        {
+            "comment": "for GFM: Strikethrough",
+            "match": "(~~[^\\s~]+~~)",
+            "captures": {
+                "1": { "name": "comment.line.number-sign.shell" }
+            }
+        }
+    ],
+    "repository": {
         "link-footnote": {
             "patterns": [
                 {
                     "captures": {
-                        "1": {
-                            "name": "punctuation.definition.constant.begin.markdown.jekyll"
-                        },
-                        "2": {
-                            "name": "constant.other.reference.link.markdown.jekyll"
-                        },
-                        "3": {
-                            "name": "punctuation.definition.constant.end.markdown.jekyll"
-                        }
+                        "1": { "name": "punctuation.definition.constant.begin.markdown.jekyll" },
+                        "2": { "name": "constant.other.reference.link.markdown.jekyll" },
+                        "3": { "name": "punctuation.definition.constant.end.markdown.jekyll"}
                     },
                     "match": ".?(\\[)([^\\]]*)(\\])",
                     "name": "constant.other.reference.link.markdown.jekyll"
@@ -108,45 +247,21 @@
             ]
         },
         "front-matter": {
+            "comment": "for jekyll yaml front",
             "patterns": [
+                // { "include": "source.yaml" }
                 {
+                    "match": "^([\\s-]*[a-zA-Z0-9_-]+):([^#]*)",
                     "captures": {
-                        "1": {
-                            "name": "punctuation.definition.entry.yaml.jekyll"
-                        },
-                        "10": {
-                            "name": "punctuation.definition.string.end.yaml.jekyll"
-                        },
-                        "11": {
-                            "name": "string.unquoted.yaml.jekyll"
-                        },
-                        "2": {
-                            "name": "entity.name.tag.yaml.jekyll"
-                        },
-                        "3": {
-                            "name": "punctuation.separator.key-value.yaml.jekyll"
-                        },
-                        "4": {
-                            "name": "punctuation.definition.entry.yaml.jekyll"
-                        },
-                        "5": {
-                            "name": "string.quoted.double.yaml.jekyll"
-                        },
-                        "6": {
-                            "name": "punctuation.definition.string.begin.yaml.jekyll"
-                        },
-                        "7": {
-                            "name": "punctuation.definition.string.end.yaml.jekyll"
-                        },
-                        "8": {
-                            "name": "string.quoted.single.yaml.jekyll"
-                        },
-                        "9": {
-                            "name": "punctuation.definition.string.begin.yaml.jekyll"
-                        }
-                    },
-                    "match": "(?:(?:(-\\s*)?(\\w+\\s*(:)))|(-))\\s*(?:((\")[^\"]*(\"))|((')[^']*('))|([^,{}&#\\[\\]]+))\\s*",
-                    "name": "string.unquoted.yaml.jekyll"
+                        "1": { "name": "entity.name.tag" },
+                        "2": { "name": "entity.other.attribute-name" }
+                    }
+                },
+                {
+                    "match" : "[^#]*(#.*)",
+                    "captures": {
+                        "1": {  "name" : "comment" }
+                    }
                 }
             ]
         }

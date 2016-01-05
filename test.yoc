@@ -1,16 +1,107 @@
 ---
-test: 123
+# 我是注释
+layout: post # 我是注释
+title: "linux学习笔记（七）— 配置网络系统"
+description: 
+date: 2015-12-14 11:05:00 +0800
+modified: 
+comments: true
+tags: [kernel, linux, c]
+image: 
+  background: 
+  feature: 
+  credit: 
+  creditlink: 
+image: 
+- background: 
+- feature: 
+- credit: 
+- creditlink:
+	- aaaa:
+	- aaaaa: aaaaaaa 
+share: true
 ---
+
+## 测试加粗、斜体以及删除
+
+* do_this_and_do_that_and_another_thing
+* 我是_hello_斜体
+* 我是*hello*斜体
+* 我不是_hello_world斜体
+* 我不是*hello*world斜体
+* I am _hello_ italic
+* 我**加粗**了！
+* 我__加粗__了！
+* 我 **加粗** 了！
+* 我 __加粗__ 了！
+* 我删除了某个东西~~删除~~
+* 我删除了某个东西~~删除~~删除
+
+## 测试 fenced code blocks
+
+```json
+{
+    "comment": "for markdown fence, using ```cpp",
+    "begin": "^```(cpp)\\n",
+    "beginCaptures": {
+        "1": { "name": "variable.other.normal.shell" }
+    },
+    "end": "^```$",
+    "name": "markup.heading",
+    "patterns": [
+        { "include": "source.json" }
+    ]
+    // "contentName": "punctuation.definition.fenced.markdown"
+}
+```
+
+```python
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa = a
+a = []
+b = {}
+c = set()
+d = dict()
+```
+
+```c
+int main(){
+    int i = 10;
+    f(aaaa, aaaa, 1111);
+    main(*aaaaa, 1111);
+    char c = '1';
+    return 0;
+}
+```
+
+```cpp
+int main(){
+    if while 
+    int i = 10;
+    return 0;
+    f(aaaa, aaaa, 1111);
+    main(*aaaaa, 1111);
+    char c = '1';
+}
+```
+
+```markdown
+![aaa](sssssssssssssssss)
+```
+
+```java
+int i = 1;
+string b = "aaaa"
+```
+
+    aaaa
+    aaaa
+
 
 `test` a `sssss`
 
+```html
 <div></div>
-
-<figure>
-	<a href="/images/blog/linux-note-6-1.png">
-		<img src="/images/blog/linux-note-6-1.png" alt="">
-	</a>
-</figure>
+```
 
 ![sssss](http://sssssssssssssssssssssssssssssssss)
 
@@ -23,28 +114,27 @@ For per-project settings, make sure you add your Jekyll settings correctly (read
 $12345
 
 {% highlight cpp %}
-sssssssssssssssssssa
-
-ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 {% endhighlight %}
 
 12345
 
+## 这里也还没解决
 ```js
-sssaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaa
-aaaa
+sss
 ```
+aaa
 
-just a test
+## 这里还没解决
 
 * aaaa
+    * aaaa
+    * aaaaaaaa
 * aaaa
+    - ssssss
+    - ssssss
 * sssss
 
-- aaaa
-- aaaa
-- aaaa
 
 
 # test
