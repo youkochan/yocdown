@@ -35,16 +35,12 @@
         },
         {
             "comment": "for markdown unordered list",
-            "begin": "^([ ]{4}|\\t)*([\\*-] )",
             "match": "^([ ]{4}|\\t)*([\\*-] )",
-            "end": "^$",
             "name": "constant.numeric"
         },
         {
             "comment": "for markdown ordered list",
-            "begin": "^[0-9]\\.+ ",
-            "end": "^$",
-            "match": "^[0-9]\\.+ ",
+            "match": "^[0-9]+\\.[ ]",
             "name": "constant.numeric"
         },
         {

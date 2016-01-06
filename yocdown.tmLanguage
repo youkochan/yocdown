@@ -87,26 +87,18 @@
 			<string>!?\[([^\]]*)\]\(([^\) ]*)\)</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^([ ]{4}|\t)*([\*-] )</string>
 			<key>comment</key>
 			<string>for markdown unordered list</string>
-			<key>end</key>
-			<string>^$</string>
 			<key>match</key>
 			<string>^([ ]{4}|\t)*([\*-] )</string>
 			<key>name</key>
 			<string>constant.numeric</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^[0-9]\.+ </string>
 			<key>comment</key>
 			<string>for markdown ordered list</string>
-			<key>end</key>
-			<string>^$</string>
 			<key>match</key>
-			<string>^[0-9]\.+ </string>
+			<string>^[0-9]+\.[ ]</string>
 			<key>name</key>
 			<string>constant.numeric</string>
 		</dict>
