@@ -7,6 +7,10 @@
     "fileTypes": ["md", "markdown", "yoc"],
     "patterns": [
         {
+            "match" : "^>+ .+$",
+            "name": "markup.quote, punctuation.definition.blockquote.markdown"
+        },
+        {
             "comment": "for inline raw",
             "match": "`[^`]+`",
             "name": "text.html.markdown markup.raw.inline"
@@ -31,16 +35,9 @@
         },
         {
             "comment": "for markdown unordered list",
-            "begin": "^\\* ",
+            "begin": "^([ ]{4}|\\t)*([\\*-] )",
+            "match": "^([ ]{4}|\\t)*([\\*-] )",
             "end": "^$",
-            "match": "^\\* ",
-            "name": "constant.numeric"
-        },
-        {
-            "comment": "for markdown unordered list",
-            "begin": "^- ",
-            "end": "^$",
-            "match": "^- ",
             "name": "constant.numeric"
         },
         {
@@ -57,7 +54,7 @@
         },
         {
             "comment": "for markdown heading",
-            "match": "^[#]+\\s.+",
+            "match": "^[#]+\\s.+$",
             "name": "markdown.heading, markup.heading | markup.heading entity.name, markup.heading.markdown punctuation.definition.heading.markdown"
         },
         {
@@ -79,11 +76,14 @@
             "begin": "(```|~~~|{%\\s*highlight)\\s*(c)\\s*((?:linenos\\s*)?%})?$", 
             "patterns": [
                 { "include": "source.c" }
-            ], 
-            "captures": {
+            ],
+            "beginCaptures": {
                 "1": { "name": "punctuation.definition.fenced.markdown" }, 
                 "2": { "name": "variable.language.fenced.markdown" }, 
                 "3": { "name": "punctuation.definition.fenced.markdown" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.fenced.markdown" }
             }
         },
         {
@@ -179,14 +179,6 @@
             }
         },
         {
-            // \G([ ]{4}|\t).*$\n?
-            "comment": "for markdown fence, using Tab or Space",
-            "match": "\\G(([ ]{4}|\\t).*$\\n?)",
-            "captures": {
-                "1": { "name": "punctuation.definition.fenced.markdown" }
-            } 
-        },
-        {
             "comment": "for jekyll yaml front",
             "begin": "^---$",
             "end": "^---$",
@@ -230,7 +222,11 @@
             "captures": {
                 "1": { "name": "comment.line.number-sign.shell" }
             }
-        }
+        },
+        {
+            "name": "markup.raw.block.markdown markup.raw.block.fenced.markdown", 
+            "match": "^([ ]{4}|\\t)+[^\\*\\s-].+\\n"
+        } 
     ],
     "repository": {
         "link-footnote": {
@@ -264,7 +260,7 @@
                     }
                 }
             ]
-        }
+        }  
     },
     "uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418"
 }

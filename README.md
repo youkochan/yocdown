@@ -16,19 +16,15 @@ YocDown 是一个 sublime 插件，用于解决多种需求下的 markdown 高�
 * 支持 [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting)
 * 支持根据不同的语言进行有区别的语法高亮
 
-## 示例
-
-
-
 ## 安装
 
 下载整个项目，解压并移动到 `Packages` 目录下即可。
 
 ## 更新日志
 
-* 2016-01-04：最初版本，解决了最基本的语法高亮问题。
+* 2016-01-06: 修复了一些小问题
 * 2016-01-05: 增加了多种语言高亮的支持
-
+* 2016-01-04：最初版本，解决了最基本的语法高亮问题。
 
 ## 参考
 
