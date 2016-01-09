@@ -429,6 +429,39 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>(```|~~~|{%\s*highlight)\s*(shell|bash|sh)\s*((?:linenos\s*)?%})?$</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.fenced.markdown</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.language.fenced.markdown</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.fenced.markdown</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(```|~~~|{%\s*endhighlight\s*%})\n</string>
+			<key>name</key>
+			<string>markup.raw.block.markdown markup.raw.block.fenced.markdown</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.shell</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>^---$</string>
 			<key>comment</key>
 			<string>for jekyll yaml front</string>
@@ -514,9 +547,17 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>^([ ]{4}|\t)+[^\*\s-].+\n</string>
+			<string>^(([ ]{4}|\t)+[^&lt;\*\s-].+\n)</string>
 			<key>name</key>
 			<string>markup.raw.block.markdown markup.raw.block.fenced.markdown</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.html.basic</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.html.handlebars</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -568,29 +609,29 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.constant.begin.markdown.jekyll</string>
+							<string>punctuation.definition.constant.begin.markdown</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>constant.other.reference.link.markdown.jekyll</string>
+							<string>constant.other.reference.link.markdown</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.constant.end.markdown.jekyll</string>
+							<string>punctuation.definition.constant.end.markdown</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>.?(\[)([^\]]*)(\])</string>
 					<key>name</key>
-					<string>constant.other.reference.link.markdown.jekyll</string>
+					<string>constant.other.reference.link.markdown</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.html.markdown</string>
+	<string>text.html.markdown.yocdown</string>
 	<key>uuid</key>
 	<string>ca03e751-04ef-4330-9a6b-9b99aae1c418</string>
 </dict>
