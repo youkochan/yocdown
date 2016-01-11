@@ -89,7 +89,7 @@ d = dict()
 ### c / cpp
 
 ```c
-    int main(){
+int main(){
     1111
     int i = 10;
     f(aaaa, aaaa, 1111);
@@ -104,7 +104,7 @@ d = dict()
 int main() {
     int i = 10;
     f("aaaa", "aaaa", 1111);
-main(*aaaaa, 1111);
+    main(*aaaaa, 1111);
     char c = '1';
     return 0;
 }
@@ -137,6 +137,23 @@ float c = 1.11111111;
 ```html
 <div></div>
 ```
+
+## Table
+
+|    title1   |    title2    |
+|-------------|--------------|
+| aaaa        | bbbb         |
+| aaaaaaaaaaa | aaaaaaaaaa   |
+| aaaaaa      | cccccccccccc |
+
+
++-------------+--------------+
+|    title1   |    title2    |
++-------------+--------------+
+| aaaa        | bbbb         |
+| aaaaaaaaaaa | aaaaaaaaaa   |
+| aaaaaa      | cccccccccccc |
++-------------+--------------+
 
 ## 图片以及链接
 
