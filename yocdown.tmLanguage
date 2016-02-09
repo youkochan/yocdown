@@ -429,7 +429,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(```|~~~|{%\s*highlight)\s*(shell|bash|sh)\s*((?:linenos\s*)?%})?$</string>
+			<string>(```|~~~|{%\s*highlight)\s*(bash|shell)\s*((?:linenos\s*)?%})?$</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -452,13 +452,6 @@
 			<string>(```|~~~|{%\s*endhighlight\s*%})\n</string>
 			<key>name</key>
 			<string>markup.raw.block.markdown markup.raw.block.fenced.markdown</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>source.shell</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>begin</key>

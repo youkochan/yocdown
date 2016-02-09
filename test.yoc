@@ -22,6 +22,23 @@ image:
 share: true
 ---
 
+{% highlight bash %}
+GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "term": { "text": "quick" }},
+        { "term": { "text": "brown" }},
+        { "term": { "text": "red"   }},
+        { "term": { "text": "fox"   }}
+      ]
+    }
+  }
+}
+{% endhighlight %}
+
+
 # 测试引用
 
 > aaaaaaaaaaaaaaaaaaaaaaaaa
